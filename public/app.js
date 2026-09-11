@@ -132,9 +132,33 @@ function eliminarPelicula(id){
         //Mostramos la respuesta
         console.log(data);
 
+        mostrarToast('🗑️ Película eliminada correctamente');
+
         //Recargamos las peliculas
         cargarPeliculas();
     });
+}
+
+function mostrarToast(mensaje){
+    const toast = document.querySelector('#toast');
+
+    toast.textContent = mensaje;
+    toast.classList.add('mostrar');
+
+    setTimeout(() => {
+        toast.classList.remove('mostrar');
+    }, 3000);
+}
+
+const parametros = new URLSearchParams(window.location.search);
+const mensaje = parametros.get('mensaje');
+
+if (mensaje === 'añadida') {
+    mostrarToast('🎬 Película añadida correctamente');
+}
+
+if (mensaje === 'editada') {
+    mostrarToast('✏️ Película editada correctamente');
 }
 
 //Cargamos las peliculas al iniciar

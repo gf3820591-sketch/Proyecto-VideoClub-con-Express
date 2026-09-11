@@ -56,7 +56,7 @@ app.post('/anadir-pelicula', (req, res) => {
     peliculas.push(nuevaPelicula);
 
     //Volvemos a la pagina principal
-    res.redirect('/');
+    res.redirect('/?mensaje=añadida');
 });
 
 app.post('/editar-pelicula', (req, res) => {
@@ -84,7 +84,7 @@ app.post('/editar-pelicula', (req, res) => {
     }
 
     //Volvemos a la pagina principal
-    res.redirect('/');
+    res.redirect('/?mensaje=editada');
 });
 
 app.delete('/eliminar-pelicula', (req, res) => {
