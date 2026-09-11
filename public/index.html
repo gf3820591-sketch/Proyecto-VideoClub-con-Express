@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>VideoClub</h1>
+
+    <button id="btn-mostrar-formulario">+ Añadir pelicula</button>
+
+    <form id="form-pelicula" action="anadir-pelicula" method="POST" hidden>
+        <input type="hidden" name="id">
+
+        <input type="text" name="titulo" placeholder="Titulo" required>
+        <input type="text" name="director" placeholder="Director" required>
+        <input type="number" name="anio" placeholder="Año" required>
+
+        <button type="submit" id="btn-submit">Añadir pelicula</button>
+        <button type="button" id="btn-cancelar">Cancelar</button>
+    </form>
+
+    <h2>Peliculas</h2>
+
+    <div id="lista-peliculas"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
