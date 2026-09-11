@@ -161,5 +161,7 @@ if (mensaje === 'editada') {
     mostrarToast('✏️ Película editada correctamente');
 }
 
+window.history.replaceState({}, document.title, '/');
+
 //Cargamos las peliculas al iniciar
 cargarPeliculas();
