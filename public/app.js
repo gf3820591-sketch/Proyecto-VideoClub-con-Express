@@ -26,12 +26,13 @@ function cargarPeliculas(){
 
             //Añadimos los datos de la pelicula
             tarjeta.innerHTML = `
+                <img src="${pelicula.imagen}" alt="${pelicula.titulo}">
                 <h3>${pelicula.titulo}</h3>
 
                 <p><strong>Director:</strong>${pelicula.director}</p>
                 <p><strong>Año:</strong>${pelicula.anio}</p>
-                <button data-id="${pelicula.id}" data-accion="editar">Editar</button>
-                <button data-id="${pelicula.id}" data-accion="eliminar">Eliminar</button>
+                <button data-id="${pelicula.id}" data-accion="editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button data-id="${pelicula.id}" data-accion="eliminar"><i class="fa-solid fa-trash-can"></i></button>
             `;
 
             listaPeliculas.appendChild(tarjeta);
@@ -40,7 +41,7 @@ function cargarPeliculas(){
 }
 
 //Detectamos que boton se ha pulsado y ejecutamos su funcion
-listaPeliculas.addEventListener('click', (event) => {
+listaPeliculas.addEventListener('click', (event) => {    
     if(event.target.tagName === 'BUTTON'){
         const id = Number(event.target.dataset.id);
         const accion = event.target.dataset.accion;
