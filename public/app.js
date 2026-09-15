@@ -4,6 +4,9 @@ const listaPeliculas = document.querySelector('#lista-peliculas');
 const btnSubmit = document.querySelector('#btn-submit');
 const btnCancelar = document.querySelector('#btn-cancelar');
 const btnMostrarFormulario = document.querySelector('#btn-mostrar-formulario');
+const dialogEliminar = document.querySelector('#dialog-eliminar');
+const btnCancelarEliminar = document.querySelector('#btn-cancelar-eliminar');
+const btnConfirmarEliminar = document.querySelector('#btn-confirmar-eliminar');
 
 //Mostramos el formulario
 btnMostrarFormulario.addEventListener('click', () => {
@@ -74,6 +77,7 @@ function editarPelicula(id){
             formulario.titulo.value = pelicula.titulo;
             formulario.director.value = pelicula.director;
             formulario.anio.value = pelicula.anio;
+            formulario.imagen.value = pelicula.imagen;
 
             //Cambiamos la ruta del formulario
             formulario.action = '/editar-pelicula';
@@ -111,33 +115,44 @@ btnCancelar.addEventListener('click', () => {
 //Eliminamos una pelicula
 function eliminarPelicula(id){
 
-    //Enviamos una peticion DELETE
-    fetch('/eliminar-pelicula', {
-        method: 'DELETE',
+    dialogEliminar.showModal();
 
-        //Indicamos que enviamos JSON
-        headers: {'content-type': 'application/json'
-        
-        },
+    btnConfirmarEliminar.onclick = () => {
 
-        //Enviamos el ID
-        body: JSON.stringify({
-            id: id
+        //Enviamos una peticion DELETE
+        fetch('/eliminar-pelicula', {
+            method: 'DELETE',
+
+            //Indicamos que enviamos JSON
+            headers: {'content-type': 'application/json'
+            
+            },
+
+            //Enviamos el ID
+            body: JSON.stringify({
+                id: id
+            })
         })
-    })
 
-    .then(res => res.json())
-    .then(data => {
+        .then(res => res.json())
+        .then(data => {
 
-        //Mostramos la respuesta
-        console.log(data);
+            //Mostramos la respuesta
+            console.log(data);
 
-        mostrarToast('🗑️ Película eliminada correctamente');
+            dialogEliminar.close();
 
-        //Recargamos las peliculas
-        cargarPeliculas();
-    });
+            mostrarToast('🗑️ Película eliminada correctamente');
+
+            //Recargamos las peliculas
+            cargarPeliculas();
+        });
+    };
 }
+
+btnCancelarEliminar.addEventListener('click', () => {
+    dialogEliminar.close();
+});
 
 function mostrarToast(mensaje){
     const toast = document.querySelector('#toast');

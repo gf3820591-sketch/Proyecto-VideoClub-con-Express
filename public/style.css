@@ -172,3 +172,46 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+#dialog-eliminar{
+    background: #181824;
+    color: white;
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+#dialog-eliminar::backdrop{
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#dialog-eliminar p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#dialog-eliminar button{
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+#btn-cancelar-eliminar{
+    background: #6c4ccf;
+    color: white;
+}
+
+#btn-confirmar-eliminar{
+    background: #00bcd4;
+    color: white;
+}
+
+#dialog-eliminar button:hover{
+    transform: scale(1.05);
+}

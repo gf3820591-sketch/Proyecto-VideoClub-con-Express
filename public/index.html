@@ -12,12 +12,13 @@
 
     <button id="btn-mostrar-formulario"><i class="fa-solid fa-plus"></i> Añadir pelicula</button>
 
-    <form id="form-pelicula" action="anadir-pelicula" method="POST" hidden>
+    <form id="form-pelicula" action="/anadir-pelicula" method="POST" hidden>
         <input type="hidden" name="id">
 
         <input type="text" name="titulo" placeholder="Titulo" required>
         <input type="text" name="director" placeholder="Director" required>
         <input type="number" name="anio" placeholder="Año" required>
+        <input type="url" name="imagen" placeholder="URL de la imagen" required>
 
         <button type="submit" id="btn-submit">Añadir pelicula</button>
         <button type="button" id="btn-cancelar">Cancelar</button>
@@ -26,6 +27,12 @@
     <h2>Peliculas</h2>
 
     <div id="lista-peliculas"></div>
+
+    <dialog id="dialog-eliminar">
+        <p>¿Quieres eliminar esta pelicula?</p>
+        <button id="btn-cancelar-eliminar">Cancelar</button>
+        <button id="btn-confirmar-eliminar">Eliminar</button>
+    </dialog>
 
     <div id="toast"></div>
 
