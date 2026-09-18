@@ -34,6 +34,14 @@ function cargarPeliculas(){
 
                 <p><strong>Director:</strong>${pelicula.director}</p>
                 <p><strong>Año:</strong>${pelicula.anio}</p>
+                <div class="valoracion">
+                    <span>Valoración:</span>
+                    <div class="estrellas">
+                        ${[1, 2, 3, 4, 5].map(numero =>
+                            `<span class="${numero <= pelicula.valoracion ? 'activa' : ''}">★</span>`
+                        ).join('')}
+                    </div>
+                </div>
                 <button data-id="${pelicula.id}" data-accion="editar"><i class="fa-regular fa-pen-to-square"></i></button>
                 <button data-id="${pelicula.id}" data-accion="eliminar"><i class="fa-solid fa-trash-can"></i></button>
             `;
@@ -78,6 +86,7 @@ function editarPelicula(id){
             formulario.director.value = pelicula.director;
             formulario.anio.value = pelicula.anio;
             formulario.imagen.value = pelicula.imagen;
+            document.querySelector('#valoracion').value = pelicula.valoracion;
 
             //Cambiamos la ruta del formulario
             formulario.action = '/editar-pelicula';

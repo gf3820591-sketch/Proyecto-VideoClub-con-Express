@@ -18,7 +18,17 @@
         <input type="text" name="titulo" placeholder="Titulo" required>
         <input type="text" name="director" placeholder="Director" required>
         <input type="number" name="anio" placeholder="Año" required>
-        <input type="url" name="imagen" placeholder="URL de la imagen" required>
+        <input type="text" name="imagen" placeholder="URL de la imagen" required>
+
+        <label for="valoracion">Valoracion:</label>
+
+        <select name="valoracion" id="valoracion" required>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5" selected>⭐⭐⭐⭐⭐</option>
+        </select>
 
         <button type="submit" id="btn-submit">Añadir pelicula</button>
         <button type="button" id="btn-cancelar">Cancelar</button>

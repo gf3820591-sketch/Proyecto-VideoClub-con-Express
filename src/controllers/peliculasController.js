@@ -6,26 +6,27 @@ export const listar = (req, res) => {
 };
 
 export const anadir = (req, res) => {
-    const {titulo, director, anio, imagen} = req.body;
+    const {titulo, director, anio, imagen, valoracion} = req.body;
 
-    if(!titulo || !director || !anio || !imagen){
+    if(!titulo || !director || !anio || !imagen || !valoracion){
         return res.status(400).send('Faltan datos obligatorios');
     }
 
-    Pelicula.create(titulo, director, anio, imagen);
+    Pelicula.create(titulo, director, anio, imagen, valoracion);
 
     res.redirect('/?mensaje=añadida');
 };
 
 export const editar = (req, res) => {
-    const {id, titulo, director, anio, imagen} = req.body;
+    const {id, titulo, director, anio, imagen, valoracion} = req.body;
 
     const resultado = Pelicula.update(
         id,
         titulo,
         director,
         anio,
-        imagen
+        imagen,
+        valoracion
     );
 
     if(!resultado){
